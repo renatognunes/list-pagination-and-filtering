@@ -2,7 +2,7 @@
 Treehouse Techdegree:
 FSJS project 2 - List Filter and Pagination
 ******************************************/
-   
+
 // Study guide for this project - https://drive.google.com/file/d/1OD1diUsTMdpfMDv677TfL1xO2CEkykSz/view?usp=sharing
 
 
@@ -16,6 +16,7 @@ FSJS project 2 - List Filter and Pagination
    will only be used inside of a function, then it can be locally 
    scoped to that function.
 ***/
+
 const list = document.querySelectorAll('li');
 const perPage = 10;
 
@@ -33,13 +34,14 @@ const perPage = 10;
        that will be passed into the parens later when you call or 
        "invoke" the function 
 ***/
+
 const showPage = (list, page) => {
 
    const startIndex = (page * perPage) - perPage;
    const endIndex = page * perPage;
 
    for (let i = 0; i < list.length; i++) {
-      if(i >= startIndex && i < endIndex) {
+      if (i >= startIndex && i < endIndex) {
          list[i].style.display = '';
       } else {
          list[i].style.display = 'none';
@@ -47,13 +49,46 @@ const showPage = (list, page) => {
    }
 }
 
-
 /*** 
    Create the `appendPageLinks function` to generate, append, and add 
    functionality to the pagination buttons.
 ***/
 
+const appendPageLinks = (list) => {
+   const divPage = document.querySelector('.page');
+   const div = document.createElement('div');
+   div.className = 'pagination';
+   divPage.appendChild(div);
 
+   const ul = document.createElement('ul');
+   div.appendChild(ul);
+
+   const numPages = Math.ceil(list.length / perPage);
+   for (let i = 0; i < numPages; i++) {
+      const li = document.createElement('li');
+      ul.appendChild(li);
+      const a = document.createElement('a');
+      a.href = '#';
+      a.textContent = i + 1;
+      li.appendChild(a);
+   }
+   const a = document.querySelectorAll('a');
+   a[0].className = 'active';
+
+   for (let i = 0; i < a.length; i++) {
+      a[i].addEventListener('click', (e) => {
+         for (let i = 0; i < a.length; i++) {
+            a[i].className = '';
+         }
+         e.target.className = 'active';
+
+         showPage(list, e.target.textContent);
+      })
+   }
+}
+
+showPage(list, 1);
+appendPageLinks(list);
 
 
 
