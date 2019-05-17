@@ -110,6 +110,7 @@ body{
       padding: 3px 8px;
       text-decoration: none;
       color: #4ba6c3;
+      margin: 0 3px;
     }
 
     .pagination li a.active,
