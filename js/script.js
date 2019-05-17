@@ -11,7 +11,7 @@ const list = document.querySelectorAll('li');
 const perPage = 10;
 
 
-// Creating search bar dinamically
+// Creating search bar dynamically
 const div = document.createElement('div');
 div.className = 'student-search';
 pageHeader.appendChild(div);
@@ -40,8 +40,8 @@ This function gets two arguments as parameters, the list of students and the inp
 typed in the search bar. 
 If the input value is empty, The page will display all students as the initial page, because the function
 understands that no filter request was passed in. So there is no need to filter the list. 
-If the input value is found in one of the students name, that student will be displayed.
-Although, if the input value is not found in any student name, the message 'No results found!' will be diplayed.
+If the input value is found in one of the students' name, that student will be displayed.
+Although, if the input value is not found in any student name, the message 'No results found!' will be displayed.
 Every time this function is invoked, it removes all the previews displayed students and pagination,
 and it recreates a new one calling the 'showPage' and 'appendPageLinks' functions 
 with the new values passed to it as a 'filter'.
@@ -85,7 +85,7 @@ button.addEventListener('click', (event) => {
    }
 });
 
-//The 'keyup' listener is a fast and sofisticated way to display the results as the user type for a search.
+//The 'keyup' listener is a fast and sophisticated way to display the results as the user type for a search.
 input.addEventListener('keyup', (e) => {
    if (e.target.tagName === 'INPUT') {
       search(input, list);
@@ -94,10 +94,10 @@ input.addEventListener('keyup', (e) => {
 
 
 /* 
-   This function takes a list of students as an array and the page number as
-   arguments to calculate the number of students displayed in the page. 
+   This function takes a list of students as an array and the page number as arguments 
+   to calculate the number of students displayed on the page. 
    It hides all the items in the list passed as argument except for 
-   the ten students selected to be displayed in the page passed as argument. 
+   the ten students selected to be displayed in the page passed as an argument. 
 */
 const showPage = (list, page) => {
    const startIndex = (page * perPage) - perPage;
@@ -114,8 +114,8 @@ const showPage = (list, page) => {
 
 
 /*
-   This function generates a button for the pagination for every 10 students in the list passed as argument.
-   The buttons are created as needed. If the list of students are not a rounded number e.g. 54, The last 4
+   This function generates a button for the pagination for every 10 students in the list passed as an argument.
+   The buttons are created as needed. If the list of students is not a rounded number e.g. 54, The last 4
    students in the list will be placed in the last button. A button will never hold more than 10 students. 
    The function then creates the functionality for the buttons. Which when clicked, it will display
    the students assigned to that specific button. The first button is always 'active' as the first 10 students
