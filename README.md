@@ -1,6 +1,5 @@
 Treehouse Techdegree: FSJS project 2 - List Filter and Pagination
 
-- The Project
 The project implements functionally to display a list of students more organized and clean. 
 The principal function added to this project is a pagination feature, which allows the user to navigate through a list of students using buttons. These buttons have assigned the max of 10 students each, which will be displayed on the page when selected.
 In addition, I implemented a search bar feature, which allows the user to search for a specific student name.
